@@ -52,16 +52,14 @@ const validateInputStudent = () => {
     let email = document.getElementById("emailInput").value
     let className = document.getElementById("classInput").value
     let flag = true
-    
+
     if (id.trim() == "") {
         document.getElementById("idStatus").innerHTML = "<p style='color: red;'>Không được để trống id sinh viên!</p>"
         flag = false
     } else if(!rexEXID.test(id)) {
-        document.getElementById("idStatus").innerHTML = "<p style='color: red;'>Id sinh viên không hợp lệ, phải bắt đầu bằng MS và có 3 chữ số!</p>"
+        document.getElementById("idStatus").innerHTML = "<p style='color: red;'>Id sinh viên không hợp lệ, phải bắt đầu bằng SV và có 3 chữ số!</p>"
         flag = false
-    }   
-   
-    else {
+    } else {
         document.getElementById("idStatus").innerText = ""
     }
 
@@ -71,21 +69,18 @@ const validateInputStudent = () => {
     } else {
         document.getElementById("nameStatus").innerText = ""
     }
-    
+
     if(email.trim() == "") {
         document.getElementById("emailStatus").innerHTML = "<p style='color: red;'>Không được để trống email sinh viên!</p>"
         flag = false
-    } else if(!email.includes("@") || email.includes(" ")) 
-        {
-            document.getElementById("emailStatus").innerHTML = "<p style='color: red;'>Email không hợp lệ, phải chứa @ và không có dấu cách!</p>"
-            flag = false
-        }
-    
-    else {
+    } else if(!email.includes("@") || email.includes(" ")) {
+        document.getElementById("emailStatus").innerHTML = "<p style='color: red;'>Email không hợp lệ, phải chứa @ và không có dấu cách!</p>"
+        flag = false
+    } else {
         document.getElementById("emailStatus").innerText = ""
     }
 
-    if (classTest.trim() == "") {
+    if (className.trim() == "") {
         document.getElementById("classStatus").innerHTML = "<p style='color: red;'>Không được để trống lớp sinh viên!</p>"
         flag = false
     } else {
@@ -131,7 +126,6 @@ function loadListStudents() {
         studentTableBody.appendChild(row) 
     }) 
 }
-
 
 function deleteStudent(index) {
     const students = getStudentsFromLocalStorage()
